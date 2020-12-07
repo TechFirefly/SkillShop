@@ -1,0 +1,16 @@
+==============================================================================
+Suites                                                                        
+==============================================================================
+Suites.HomePageTests :: Tests Related to HomePage                             
+==============================================================================
+User should be able to Navigate to Google Privacy Terms               | PASS |
+------------------------------------------------------------------------------
+Suites.HomePageTests :: Tests Related to HomePage                     | PASS |
+1 critical test, 1 passed, 0 failed
+1 test total, 1 passed, 0 failed
+==============================================================================
+Suites                                                                | PASS |
+1 critical test, 1 passed, 0 failed
+1 test total, 1 passed, 0 failed
+==============================================================================
+Output:  C:\Users\harsh_znekzxq\PycharmProjects\RobotProject\pabot_results\1\output.xml

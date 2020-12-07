@@ -1,0 +1,6 @@
+datasources:3113b59bcc542489fff3fb3343af13e1824ffdc6
+commandlineoptions:9f8598a690c7367accf83ead504756ddd374acc9
+suitesfrom:no-suites-from-option
+file:223379258ae0208d31456a9def0913c46d4efefa
+--suite Suites.GoogleAdsPageTests
+--suite Suites.HomePageTests
