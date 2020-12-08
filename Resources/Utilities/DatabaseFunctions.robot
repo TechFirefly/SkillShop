@@ -1,6 +1,5 @@
 *** Settings ***
 Library  DatabaseLibrary
-Library  DatabaseLibrary
 
 *** Variables ***
 ${dbName}  customers

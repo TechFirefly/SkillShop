@@ -9,6 +9,7 @@ ${URL}=  https://skillshop.exceedlms.com/student/catalog
 Begin Web Test
     open browser  about:blank  ${BROWSER}
     Maximize Browser Window
+    Delete All Cookies
     go to  ${URL}
 
 End Web Test

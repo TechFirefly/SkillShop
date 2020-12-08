@@ -13,9 +13,9 @@ Test Setup  Begin Web Test
 Test Teardown  End Web Test
 
 *** Test Cases ***
-#User should be able to navigate to All Topics
-    #HomePage.Verify HomePage Loaded
-    #HomePage.Navigate To All Topics
+User should be able to navigate to All Topics
+    HomePage.Verify HomePage Loaded
+    HomePage.Navigate To All Topics
 
 User should be able to navigate to Help Center
     HomePage.Navigate To Help Center
@@ -24,12 +24,10 @@ User should be able to navigate to Help Center
 
 User should be able to browse topics
     HomePage.Navigate To Browse
-    sleep  10s
+    sleep  5s
     AllTopicsPage.Verify All Topics Page Loaded
-    AllTopicsPage.Navigate To Google For Education
-    #GoogleAdsPage.Verify Google Ads Page Loaded
-    #GoogleAdsPage.Navigate to Google Ads Certification
-    #GoogleAdsCertificationPage.Verify Google Ads Certification Page Loaded
+    AllTopicsPage.Navigate To Google Ads Page
+    GoogleAdsPage.Verify Google Ads Page Loaded
 
 User should be able to login
     HomePage.Verify HomePage Loaded
