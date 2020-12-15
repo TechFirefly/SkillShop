@@ -1,6 +1,6 @@
 *** Settings ***
 Library  String
-Library  REST    ${baseAPIUrl}
+Library  REST    http://localhost:51044/api
 
 *** Variables ***
 ${baseAPIUrl}  localhost:8273/

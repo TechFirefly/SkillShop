@@ -1,5 +1,6 @@
 *** Settings ***
 Library  OperatingSystem
+Library  String
 
 *** Variables ***
 
@@ -10,6 +11,14 @@ Read File Content
     File Should Exist  ${FilePath}
     ${FileContent}=  Get File  ${FilePath}
     [Return]  ${FileContent}
+
+Read File Content Line
+    [Arguments]  ${FilePath}  ${LineNumber}
+    File Should Exist  ${FilePath}
+    ${FileContent}=  Read File Content  ${FilePath}
+    ${strFileContent}=  convert to string  ${FileContent}
+    ${LineContent}=  Get Line  ${strFileContent}  ${LineNumber}
+    [Return]  ${LineContent}
 
 Delete File
     [Arguments]  ${FilePath}

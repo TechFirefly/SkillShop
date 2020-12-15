@@ -13,29 +13,35 @@ Test Setup  Begin Web Test
 Test Teardown  End Web Test
 
 *** Test Cases ***
-User should be able to navigate to All Topics
-    HomePage.Verify HomePage Loaded
-    HomePage.Navigate To All Topics
+#User should be able to navigate to All Topics
+    #HomePage.Verify HomePage Loaded
+    #HomePage.Navigate To All Topics
 
-User should be able to navigate to Help Center
-    HomePage.Navigate To Help Center
-    sleep  5s
-    HelpCenterPage.Verify Help Center Page Loaded
+#User should be able to navigate to Help Center
+    #HomePage.Navigate To Help Center
+    #sleep  5s
+    #HelpCenterPage.Verify Help Center Page Loaded
 
-User should be able to browse topics
-    HomePage.Navigate To Browse
-    sleep  5s
-    AllTopicsPage.Verify All Topics Page Loaded
-    AllTopicsPage.Navigate To Google Ads Page
-    GoogleAdsPage.Verify Google Ads Page Loaded
+#User should be able to browse topics
+    #HomePage.Navigate To Browse
+    #sleep  5s
+    #AllTopicsPage.Verify All Topics Page Loaded
+    #AllTopicsPage.Navigate To Google Ads Page
+    #GoogleAdsPage.Verify Google Ads Page Loaded
 
-User should be able to login
-    HomePage.Verify HomePage Loaded
-    HomePage.User Login
+#User should be able to login
+    #HomePage.Verify HomePage Loaded
+    #HomePage.User Login
 
-User should be able to Search for Google Ads
-    HomePage.Search For  Google Ads
+#User should be able to Search for Google Ads
+    #HomePage.Search For  Google Ads
 
-User should be able to Navigate to Google Privacy Terms
-    Homepage.Navigate To Google Privacy Terms
-    GooglePrivacyTermsPage.Verify Google Privacy Terms Page Loaded
+#User should be able to Navigate to Google Privacy Terms
+    #Homepage.Navigate To Google Privacy Terms
+    #GooglePrivacyTermsPage.Verify Google Privacy Terms Page Loaded
+
+#User should be able to Send Email
+    #HomePage.Send Test Email
+
+User should be able to get API
+    HomePage.Testing Get

@@ -5,16 +5,16 @@ Resource  ./HomePage.robot
 *** Variables ***
 ${lnkGoogleAdsPage}  xpath   =   //ul[@class="cardgrid cardgrid--categorycards"]/li/div/a
 ${lnkGoogleForEducationPage}  xpath   =   //ul[@class="cardgrid cardgrid--categorycards"]/li[2]/div/a
-${lnkGoogleMarketingPlatformPage}  xpath   =   //a[contains(text(), 'Google Marketing Platform')]
-${lnkAnalyticsAcademyPage}  xpath   =   //a[contains(text(), 'Analytics Academy')]
-${lnkGoogleMyBusinessPage}  xpath   =   //a[contains(text(), 'Google My Business')]
-${lnkYoutubePage}  xpath   =   //a[contains(text(), 'YouTube')]
-${lnkGoogleAdManagerPage}  xpath   =   //a[contains(text(), 'Google Ad Manager')]
-${lnkGoogleCloudPage}  xpath   =   //a[contains(text(), 'Google Cloud')]
-${lnkWazeFundamentalsPage}  xpath   =   //a[contains(text(), 'Waze Fundamentals E-Learning')]
-${lnkGoogleAdMobPage}  xpath   =   //a[contains(text(), 'Google AdMob')]
-${lnkAuthorizedBuyersPage}  xpath   =   //a[contains(text(), 'Authorized Buyers')]
-${lnkAndroidAcademyPage}  xpath   =   //a[contains(text(), 'Android Enterprise Academy')]
+${lnkGoogleMarketingPlatformPage}  xpath   =   //ul[@class="cardgrid cardgrid--categorycards"]/li[3]/div/a
+${lnkAnalyticsAcademyPage}  xpath   =   //ul[@class="cardgrid cardgrid--categorycards"]/li[4]/div/a
+${lnkGoogleMyBusinessPage}  xpath   =   //ul[@class="cardgrid cardgrid--categorycards"]/li[5]/div/a
+${lnkYoutubePage}  xpath   =   //ul[@class="cardgrid cardgrid--categorycards"]/li[6]/div/a
+${lnkGoogleAdManagerPage}  xpath   =   //ul[@class="cardgrid cardgrid--categorycards"]/li[7]/div/a
+${lnkGoogleCloudPage}  xpath   =   //ul[@class="cardgrid cardgrid--categorycards"]/li[8]/div/a
+${lnkWazeFundamentalsPage}  xpath   =   //ul[@class="cardgrid cardgrid--categorycards"]/li[9]/div/a
+${lnkGoogleAdMobPage}  xpath   =   //ul[@class="cardgrid cardgrid--categorycards"]/li[10]/div/a
+${lnkAuthorizedBuyersPage}  xpath   =   //ul[@class="cardgrid cardgrid--categorycards"]/li[11]/div/a
+${lnkAndroidAcademyPage}  xpath   =   //ul[@class="cardgrid cardgrid--categorycards"]/li[12]/div/a
 
 *** Keywords ***
 Verify All Topics Page Loaded

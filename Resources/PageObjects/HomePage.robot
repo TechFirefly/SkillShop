@@ -1,8 +1,10 @@
 *** Settings ***
 Library  SeleniumLibrary
 Library  String
-Resource  ../Resources/Utilities/FileSystemFunctions.robot
+Resource  ../Utilities/FileSystemFunctions.robot
 Resource  ../Resources/PageObjects/Login.robot
+Resource  ../Utilities/OutlookFunctions.robot
+Resource  ../Utilities/RESTfulAPIFunctions.robot
 
 *** Variables ***
 #Landing Page Elements
@@ -35,6 +37,7 @@ ${lnkWazeFundamentals}  xpath   =   //a[contains(text(), 'Waze Fundamentals E-Le
 ${lnkGoogleAdMob}  xpath   =   //a[contains(text(), 'Google AdMob')]
 ${lnkAuthorizedBuyers}  xpath   =   //a[contains(text(), 'Authorized Buyers')]
 ${lnkAndroidEnterpriseAcademy}  xpath   =   //a[contains(text(), 'Android Enterprise Academy')]
+${lnkAllActivities}  xpath   =   //a[contains(text(), 'All Activities')]
 
 #Footer Elements
 ${lnkGoogleTerms}  xpath   =   //a[contains(text(), 'Google Privacy & Terms')]
@@ -80,15 +83,15 @@ Navigate To Google Privacy Terms
     Switch Window  NEW
 
 Navigate To Intellum Terms
-    Click Element  xpath: ${lnkIntellumTerms}
+    Click Element  ${lnkIntellumTerms}
     Switch Window  NEW
 
 Navigate To Intellum Page
-    Click Element  xpath: ${lnkIntellumPage}
+    Click Element  ${lnkIntellumPage}
     Switch Window  NEW
 
 Navigate Back To Home Page
-    Click Element  xpath: ${btnHome}
+    Click Element  ${btnHome}
 
 Search For
     [Arguments]  ${SearchString}
@@ -99,10 +102,8 @@ User Login
     Click Element  ${btnLogIn}
     Sleep  5s
     Click Element  ${btnSignInGoogle}
-    ${FileContent}=  FileSystemFunctions.Read File Content  LoginCredentials.txt
-    ${strFileContent}=  convert to string  ${FileContent}
-    ${UserEmail}=  Get Line  ${strFileContent}  0
-    ${Password}=  Get Line  ${strFileContent}  1
+    ${UserEmail}=  Read File Content Line  LoginCredentials.txt  0
+    ${Password}=  Read File Content Line  LoginCredentials.txt  0
     ${present}=  run keyword and return status  Element Should Be Visible  xpath=//div[@data-identifier="${UserEmail}"]
     Run Keyword IF  ${present}  Login.Alternate User Login  ${UserEmail}
     ...             ELSE  Login.User Login  ${UserEmail}  ${Password}
@@ -110,3 +111,11 @@ User Login
 User Logout
     Click Element  ${btnCurrentUser}
     Click Element  ${lnkLogout}
+
+Send Test Email
+    OutlookFunctions.Authorize Account  harshapenumetcha37@gmail.com  Spandana37&
+    OutlookFunctions.Send Email  harshapenumetcha37@gmail.com  harsha_chanti37@yahoo.co.in  TestEmail  TestMessage
+
+Testing Get
+    #RESTfulAPIFunctions.Intialize API Parameters  http://localhost:51044/api
+    RESTfulAPIFunctions.Get Method  /authors  200
