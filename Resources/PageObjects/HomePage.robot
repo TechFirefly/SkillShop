@@ -116,6 +116,5 @@ Send Test Email
     OutlookFunctions.Authorize Account  harshapenumetcha37@gmail.com  Spandana37&
     OutlookFunctions.Send Email  harshapenumetcha37@gmail.com  harsha_chanti37@yahoo.co.in  TestEmail  TestMessage
 
-Testing Get
-    #RESTfulAPIFunctions.Intialize API Parameters  http://localhost:51044/api
-    RESTfulAPIFunctions.Get Method  /authors  200
+TestSet
+    Get Method

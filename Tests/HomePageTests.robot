@@ -40,8 +40,5 @@ Test Teardown  End Web Test
     #Homepage.Navigate To Google Privacy Terms
     #GooglePrivacyTermsPage.Verify Google Privacy Terms Page Loaded
 
-#User should be able to Send Email
-    #HomePage.Send Test Email
-
-User should be able to get API
-    HomePage.Testing Get
+User should Get
+    HomePage.TestSet

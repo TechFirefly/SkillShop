@@ -1,60 +1,56 @@
 *** Settings ***
-Library  String
-Library  REST    http://localhost:51044/api
+Library  RequestsLibrary
+Library  Collections
 
 *** Variables ***
-${baseAPIUrl}  localhost:8273/
+${baseAPIUrl}=  http://localhost:51044/api
+${Session}=  default
 
 *** Keywords ***
-Intialize API Parameters
-    [Arguments]  ${APIUrl}
-    ${baseAPIUrl}=  ${APIUrl}
-
 Get Method
     [Arguments]  ${Url}  ${ResponseCode}
-    GET  ${Url}
-    Integer  response status  ${ResponseCode}
-
-Get Method Invalid
-    [Arguments]  ${Url}  ${ResponseCode}  ${ResponseMessage}
-    GET  ${Url}
-    Integer  response status  ${ResponseCode}
-    String  response body error  ${ResponseMessage}
+    create session  session  ${baseAPIUrl}
+    ${Response}=  get request  session  ${Url}
+    should be equal  ${Response.status_code}  ${ResponseCode}
+    [Return]  convert to string  ${Response.content}
+    delete all sessions
 
 Post Method
-    [Arguments]  ${Url}  ${RequestBody}  ${ResponseCode}
-    POST  ${Url}  ${RequestBody}
-    Integer  response status  ${ResponseCode}
-
-Post Method Invalid
-    [Arguments]  ${Url}  ${RequestBody}  ${ResponseCode}  ${ResponseMessage}
-    POST  ${Url}  ${RequestBody}
-    Integer  response status  ${ResponseCode}
-    String  response body error  ${ResponseMessage}
+    [Arguments]  ${Url}  ${RequestHeaders}  ${RequestBody}  ${ResponseCode}
+    create session  session  ${baseAPIUrl}
+    ${Body}=  create dictionary  ${RequestBody}
+    ${Headers}=  create dictionary  ${RequestHeaders}
+    ${Response}=  post request  session  ${Url}  data=${Body}  headers=${Headers}
+    should be equal  ${Response.status_code}  ${ResponseCode}
+    [Return]  convert to string  ${Response.content}
+    delete all sessions
 
 PUT Method
-    [Arguments]  ${Url}  ${RequestBody}  ${ResponseCode}
-    PUT  ${Url}  ${RequestBody}
-    Integer  response status  ${ResponseCode}
-
-PUT Method Invalid
-    [Arguments]  ${Url}  ${RequestBody}  ${ResponseCode}  ${ResponseMessage}
-    PUT  ${Url}  ${RequestBody}
-    Integer  response status  ${ResponseCode}
-    String  response body error  ${ResponseMessage}
+    [Arguments]  ${Url}  ${RequestHeaders}  ${RequestBody}  ${ResponseCode}
+    create session  session  ${baseAPIUrl}
+    ${Body}=  create dictionary  ${RequestBody}
+    ${Headers}=  create dictionary  ${RequestHeaders}
+    ${Response}=  put request  session  ${Url}  data=${Body}  headers=${Headers}
+    should be equal  ${Response.status_code}  ${ResponseCode}
+    [Return]  convert to string  ${Response.content}
+    delete all sessions
 
 PATCH Method
-    [Arguments]  ${Url}  ${RequestBody}  ${ResponseCode}
-    PATCH  ${Url}  ${RequestBody}
-    Integer  response status  ${ResponseCode}
-
-PATCH Method Invalid
-    [Arguments]  ${Url}  ${RequestBody}  ${ResponseCode}  ${ResponseMessage}
-    PATCH  ${Url}  ${RequestBody}
-    Integer  response status  ${ResponseCode}
-    String  response body error  ${ResponseMessage}
+    [Arguments]  ${Url}  ${RequestHeaders}  ${RequestBody}  ${ResponseCode}
+    create session  session  ${baseAPIUrl}
+    ${Body}=  create dictionary  ${RequestBody}
+    ${Headers}=  create dictionary  ${RequestHeaders}
+    ${Response}=  patch request  session  ${Url}  data=${Body}  headers=${Headers}
+    should be equal  ${Response.status_code}  ${ResponseCode}
+    [Return]  convert to string  ${Response.content}
+    delete all sessions
 
 DELETE Method
-    [Arguments]  ${Url}  ${ResponseCode}
-    DELETE  ${Url}
-    Integer  response status  ${ResponseCode}
+    [Arguments]  ${Url}  ${RequestHeaders}  ${RequestBody}  ${ResponseCode}
+    create session  session  ${baseAPIUrl}
+    ${Body}=  create dictionary  ${RequestBody}
+    ${Headers}=  create dictionary  ${RequestHeaders}
+    ${Response}=  delete request  session  ${Url}  data=${Body}  headers=${Headers}
+    should be equal  ${Response.status_code}  ${ResponseCode}
+    [Return]  convert to string  ${Response.content}
+    delete all sessions
