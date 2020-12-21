@@ -2,11 +2,16 @@
 Library  RequestsLibrary
 Library  Collections
 
+Suite Teardown  delete all sessions
+
 *** Variables ***
 ${baseAPIUrl}=  http://localhost:51044/api
-${Session}=  default
 
 *** Keywords ***
+Initialize Base URL
+    [Arguments]  ${Url}
+    ${baseAPIUrl}=  ${Url}
+
 Get Method
     [Arguments]  ${Url}  ${ResponseCode}
     create session  session  ${baseAPIUrl}

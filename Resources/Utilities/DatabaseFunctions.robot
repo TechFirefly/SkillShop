@@ -1,6 +1,8 @@
 *** Settings ***
 Library  DatabaseLibrary
 
+Suite Teardown  Disconnect From Database
+
 *** Variables ***
 ${dbName}  customers
 ${dbUser}  root
@@ -19,7 +21,19 @@ Initialize Database
     set global variable  ${dbPassword}  ${dbpassword}
     connect to database  pymysql  ${dbName}  ${dbUser}  ${dbPassword}  ${dbHost}  ${dbPort}
 
-Execute Database Query
+Create Database Table
+    [Arguments]  ${query}
+    Execute Sql String  ${query}
+
+Insert Database record
+    [Arguments]  ${query}
+    Execute Sql String  ${query}
+
+Insert Multiple Database Records
+    [Arguments]  ${SqlFilePath}
+    Execute Sql Script  ${SqlFilePath}
+
+Execute Database Select Query
     [Arguments]  ${query}
     check if exists in database  ${query}
     @{queryResults}  query  ${query}

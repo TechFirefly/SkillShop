@@ -1,10 +1,11 @@
 *** Settings ***
 Library  SeleniumLibrary
 Library  String
+Resource  ./Login.robot
 Resource  ../Utilities/FileSystemFunctions.robot
-Resource  ../Resources/PageObjects/Login.robot
 Resource  ../Utilities/OutlookFunctions.robot
 Resource  ../Utilities/RESTfulAPIFunctions.robot
+Resource  ../Utilities/ExcelFunctions.robot
 
 *** Variables ***
 #Landing Page Elements
@@ -17,12 +18,13 @@ ${btnLogIn}  xpath   =   //button[@class="button button--primary button--apphead
 ${btnSignInGoogle}  xpath   =   //a[@class="button button--googlelogin"]
 
 #Top Bar Elements
-${lnkGoogleLogo}  xpath   =   //a[@class="appheader__titleimage"]
+${lnkGoogleLogo}  xpath   =   //a[@class="appheader__titleimage u-org--header"]
 ${btnHome}  xpath   =   //a[@class="appnav__link hint hint--bottom u-org--header u-orgcolor--borderhover"]
 ${lnkHelpCenter}  xpath   =   //a[@data-hint="Help Center"]
 ${lnkAboutSkillShop}  xpath   =   //a[@data-hint="About SkillShop"]
 ${lnkBrowse}  xpath   =   //a[@data-hint="Browse"]
 ${drpdwnTopics}  xpath   =   //button[@class="button button--toggle appheader__categoriesbutton u-org--header"]
+${txtbxAppSearch}  id   =   app-search
 
 #Topics Dropdown Elements
 ${lnkGoogleAds}  xpath   =   //button[@id="categoriesmenu-53-select"]
@@ -67,6 +69,10 @@ Navigate To Help Center
     Click Element  ${lnkHelpCenter}
     Switch Window  NEW
 
+Navigate To About Skillshop
+    Click Element  ${lnkAboutSkillShop}
+    Switch Window  NEW
+
 Navigate To Browse
     [Documentation]  Navigates to All Topics Page
     Click Element  ${lnkBrowse}
@@ -95,8 +101,8 @@ Navigate Back To Home Page
 
 Search For
     [Arguments]  ${SearchString}
-    Input Text  id: app-search  ${SearchString}
-    Press Keys  id: app-search  RETURN
+    Input Text  ${txtbxAppSearch}  ${SearchString}
+    Press Keys  ${txtbxAppSearch}  RETURN
 
 User Login
     Click Element  ${btnLogIn}
@@ -113,8 +119,11 @@ User Logout
     Click Element  ${lnkLogout}
 
 Send Test Email
-    OutlookFunctions.Authorize Account  harshapenumetcha37@gmail.com  Spandana37&
-    OutlookFunctions.Send Email  harshapenumetcha37@gmail.com  harsha_chanti37@yahoo.co.in  TestEmail  TestMessage
+    Send Email  harsha_chanti37@yahoo.co.in  testsubject  testbody
 
-TestSet
-    Get Method
+API Get Request
+    Get Method  /authors  200
+
+Read From Excel
+    ExcelFunctions.Open Excel File  TestExcel.xlsx
+    ExcelFunctions.Read Excel Cell Value  Sheet1  1  1

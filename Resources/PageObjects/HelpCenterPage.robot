@@ -29,7 +29,7 @@ Verify Help Center Page Loaded
     Wait Until Page Contains  How can we help you?
     Page Should Contain  How can we help you?
 
-Navigate Back to Google Skill Shop
+Navigate Back to Skill Shop
     Close Window
 
 Navigate to UserAccount Options

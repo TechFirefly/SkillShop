@@ -9,8 +9,8 @@ Resource  ../Resources/PageObjects/GooglePrivacyTermsPage.robot
 Resource  ../Resources/PageObjects/GoogleAdsPage.robot
 Resource  ../Resources/PageObjects/GoogleAdsCertificationPage.robot
 
-Test Setup  Begin Web Test
-Test Teardown  End Web Test
+#Test Setup  Begin Web Test
+#Test Teardown  End Web Test
 
 *** Test Cases ***
 #User should be able to navigate to All Topics
@@ -40,5 +40,11 @@ Test Teardown  End Web Test
     #Homepage.Navigate To Google Privacy Terms
     #GooglePrivacyTermsPage.Verify Google Privacy Terms Page Loaded
 
-User should Get
-    HomePage.TestSet
+#User should Get from API
+    #HomePage.API Get Request
+
+#User should send email
+    #HomePage.Send Test Email
+
+User should read from excel
+    HomePage.Read From Excel
