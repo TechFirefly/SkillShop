@@ -3,7 +3,7 @@ Library  SeleniumLibrary
 Library  String
 Resource  ./Login.robot
 Resource  ../Utilities/FileSystemFunctions.robot
-Resource  ../Utilities/OutlookFunctions.robot
+Resource  ../Utilities/EmailFunctions.robot
 Resource  ../Utilities/RESTfulAPIFunctions.robot
 Resource  ../Utilities/ExcelFunctions.robot
 
@@ -121,7 +121,12 @@ User Logout
 Send Test Email
     Send Email  harsha_chanti37@yahoo.co.in  testsubject  testbody
 
+Read Gmail Content
+    EmailFunctions.Connect to Mailbox  imap.googlemail.com  harshapenumetcha37@gmail.com  Spandana37&
+    EmailFunctions.Email Verification  harsha_chanti37@yahoo.co.in
+
 API Get Request
+    Initialize Base Url  http://localhost:51044/api
     Get Method  /authors  200
 
 Read From Excel

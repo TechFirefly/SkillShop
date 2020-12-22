@@ -1,8 +1,6 @@
 *** Settings ***
 Library  ExcelLibrary
 
-Suite Teardown  Close All Excel Documents
-
 *** Variables ***
 
 
@@ -10,6 +8,9 @@ Suite Teardown  Close All Excel Documents
 Open Excel File
     [Arguments]  ${ExcelFile}
     Open Excel Document  ${ExcelFile}  doc_id=docid
+
+Close Excel Documents
+    Close All Excel Documents
 
 Read Excel Cell Value
     [Arguments]  ${Sheet}  ${Row}  ${Column}

@@ -43,8 +43,8 @@ Resource  ../Resources/PageObjects/GoogleAdsCertificationPage.robot
 #User should Get from API
     #HomePage.API Get Request
 
-#User should send email
-    #HomePage.Send Test Email
+#User should read from excel
+    #HomePage.Read From Excel
 
-User should read from excel
-    HomePage.Read From Excel
+User should read email
+    HomePage.Read Gmail Content
