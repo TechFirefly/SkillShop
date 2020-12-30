@@ -33,8 +33,8 @@ Resource  ../Resources/PageObjects/GoogleAdsCertificationPage.robot
     #HomePage.Verify HomePage Loaded
     #HomePage.User Login
 
-#User should be able to Search for Google Ads
-    #HomePage.Search For  Google Ads
+User should be able to Search for Google Ads
+    HomePage.Search For  Google Ads
 
 #User should be able to Navigate to Google Privacy Terms
     #Homepage.Navigate To Google Privacy Terms
@@ -46,5 +46,5 @@ Resource  ../Resources/PageObjects/GoogleAdsCertificationPage.robot
 #User should read from excel
     #HomePage.Read From Excel
 
-User should read email
-    HomePage.Read Gmail Content
+#User should read email
+    #HomePage.Read Gmail Content

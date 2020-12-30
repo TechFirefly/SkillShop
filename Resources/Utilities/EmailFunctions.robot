@@ -1,7 +1,7 @@
 *** Settings ***
 Library  ImapLibrary
-#Library  RPA.Outlook.Application
-#Library  RPA.Email.ImapSmtp
+Library  RPA.Outlook.Application
+Library  RPA.Email.ImapSmtp
 
 *** Variables ***
 
