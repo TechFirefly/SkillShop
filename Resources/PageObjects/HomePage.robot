@@ -1,5 +1,6 @@
 *** Settings ***
 Library  SeleniumLibrary
+Library  AppiumLibrary
 Library  String
 Resource  ./Login.robot
 Resource  ../Utilities/FileSystemFunctions.robot
