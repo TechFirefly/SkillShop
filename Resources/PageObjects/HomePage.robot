@@ -1,5 +1,5 @@
 *** Settings ***
-Library  SeleniumLibrary
+#Library  SeleniumLibrary
 Library  AppiumLibrary
 Library  String
 Resource  ./Login.robot
@@ -102,8 +102,8 @@ Navigate Back To Home Page
 
 Search For
     [Arguments]  ${SearchString}
-    Input Text  ${txtbxAppSearch}  ${SearchString}
-    Press Keys  ${txtbxAppSearch}  RETURN
+    AppiumLibrary.Input Text  ${txtbxAppSearch}  ${SearchString}
+    #AppiumLIbrary.Press Keys  ${txtbxAppSearch}  RETURN
 
 User Login
     Click Element  ${btnLogIn}

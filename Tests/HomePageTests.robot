@@ -35,8 +35,8 @@ Resource  ../Resources/PageObjects/GoogleAdsCertificationPage.robot
     #HomePage.Verify HomePage Loaded
     #HomePage.User Login
 
-#User should be able to Search for Google Ads
-    #HomePage.Search For  Google Ads
+User should be able to Search for Google Ads
+    HomePage.Search For  Google Ads
 
 #User should be able to Navigate to Google Privacy Terms
     #Homepage.Navigate To Google Privacy Terms
@@ -51,15 +51,12 @@ Resource  ../Resources/PageObjects/GoogleAdsCertificationPage.robot
 #User should read email
     #HomePage.Read Gmail Content
 
-#User should run mobile tests
-    #HomePage.Open_Mobile_Application
-
-User should run commands
+#User_should_run_commands
     #${frt}=  Run  emulator -list-avds
-    #${frt}=  Run  appium
-    Run  C:\Users\harsh_znekzxq\AppData\Local\Android\Sdk\tools\emulator -avd Pixel_4_Android_11
-    Sleep  10s
-    #Run  emulator -avd Pixel_4_Android_11
-    #${frt}=  Run  ipconfig | find "IPv4"
     #${IP}=  Fetch From Right  ${frt}  ${SPACE}
     #log to console  [${IP}]
+    #${frt}=  Run  appium
+    #Run  cd C:\Users\harsh_znekzxq\AppData\Local\Android\Sdk\tools\
+    #Run  emulator -avd Pixel_4_Android_11
+    #Sleep  10s
+    #log to console  ${CURDIR}
