@@ -119,8 +119,8 @@ function enableStatisticsSorter() {
     });
     $(".statistics").tablesorter({
         sortInitialOrder: 'desc',
-        headers: {0: {sorter:'statName', sortInitialOrder: 'asc'},
-                  5: {sorter: false}}
+        headers: {0: {sorter: 'statName', sortInitialOrder: 'asc'},
+                  6: {sorter: false}}
     });
 }
 
@@ -177,9 +177,7 @@ $.template('statColumnsTemplate',
 
 $.template('suiteStatusMessageTemplate',
     '${total} {{= testOrTask("{test}")}}{{if total != 1}}s{{/if}} total, ' +
-    '<span>${pass} passed</span>, ' +
-    '<span>${fail} failed</span>, ' +
-    '<span>${skip} skipped</span>'
+    '${pass} passed, ${fail} failed, ${skip} skipped'
 );
 
 // For complete cross-browser experience..

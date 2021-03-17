@@ -35,15 +35,15 @@ Resource  ../Resources/PageObjects/GoogleAdsCertificationPage.robot
     #HomePage.Verify HomePage Loaded
     #HomePage.User Login
 
-User should be able to Search for Google Ads
-    HomePage.Search For  Google Ads
+#User should be able to Search for Google Ads
+    #HomePage.Search For  Google Ads
 
 #User should be able to Navigate to Google Privacy Terms
     #Homepage.Navigate To Google Privacy Terms
     #GooglePrivacyTermsPage.Verify Google Privacy Terms Page Loaded
 
-#User should Get from API
-    #HomePage.API Get Request
+User should Get from API
+    HomePage.API Get Request
 
 #User should read from excel
     #HomePage.Read From Excel

@@ -127,8 +127,8 @@ Read Gmail Content
     EmailFunctions.Email Verification  harsha_chanti37@yahoo.co.in
 
 API Get Request
-    Initialize Base Url  http://localhost:51044/api
-    Get Method  /authors  200
+    Initialize Base Url  http://localhost:51045
+    Get Method  /api/authors  200
 
 Read From Excel
     ExcelFunctions.Open Excel File  TestExcel.xlsx

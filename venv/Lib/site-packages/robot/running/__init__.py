@@ -60,7 +60,7 @@ using the :class:`~robot.running.model.TestSuite` class::
     suite = TestSuite('Activate Skynet')
     suite.resource.imports.library('OperatingSystem')
     test = suite.tests.create('Should Activate Skynet', tags=['smoke'])
-    test.keywords.create('Set Environment Variable', args=['SKYNET', 'activated'], type='setup')
+    test.setup.config('Set Environment Variable', args=['SKYNET', 'activated'])
     test.keywords.create('Environment Variable Should Be Set', args=['SKYNET'])
 
 Not that complicated either, especially considering the flexibility. Notice
@@ -95,6 +95,7 @@ the results is possible using the
     ResultWriter('skynet.xml').write_results()
 """
 
+from .arguments import ArgInfo, ArgumentSpec
 from .builder import TestSuiteBuilder, ResourceFileBuilder
 from .context import EXECUTION_CONTEXTS
 from .model import Keyword, TestCase, TestSuite

@@ -3,18 +3,19 @@ Library  RequestsLibrary
 Library  Collections
 
 *** Variables ***
-${baseAPIUrl}=  http://localhost:51044/api
+${baseAPIUrl}=  http://localhost:51045/api
 
 *** Keywords ***
 Initialize Base URL
     [Arguments]  ${Url}
-    ${baseAPIUrl}=  ${Url}
+    ${baseAPIUrl}=  Set Variable  ${Url}
 
 Get Method
     [Arguments]  ${Url}  ${ResponseCode}
     create session  session  ${baseAPIUrl}
-    ${Response}=  get request  session  ${Url}
-    should be equal  ${Response.status_code}  ${ResponseCode}
+    ${Response}=  get on session  session  ${Url}
+    ${strResponseCode}=  convert to string  ${Response.status_code}
+    should be equal  ${strResponseCode}  ${ResponseCode}
     [Return]  convert to string  ${Response.content}
     delete all sessions
 
@@ -23,8 +24,9 @@ Post Method
     create session  session  ${baseAPIUrl}
     ${Body}=  create dictionary  ${RequestBody}
     ${Headers}=  create dictionary  ${RequestHeaders}
-    ${Response}=  post request  session  ${Url}  data=${Body}  headers=${Headers}
-    should be equal  ${Response.status_code}  ${ResponseCode}
+    ${Response}=  post on session  session  ${Url}  data=${Body}  headers=${Headers}
+    ${strResponseCode}=  convert to string  ${Response.status_code}
+    should be equal  ${strResponseCode}  ${ResponseCode}
     [Return]  convert to string  ${Response.content}
     delete all sessions
 
@@ -33,8 +35,9 @@ PUT Method
     create session  session  ${baseAPIUrl}
     ${Body}=  create dictionary  ${RequestBody}
     ${Headers}=  create dictionary  ${RequestHeaders}
-    ${Response}=  put request  session  ${Url}  data=${Body}  headers=${Headers}
-    should be equal  ${Response.status_code}  ${ResponseCode}
+    ${Response}=  put on session  session  ${Url}  data=${Body}  headers=${Headers}
+    ${strResponseCode}=  convert to string  ${Response.status_code}
+    should be equal  ${strResponseCode}  ${ResponseCode}
     [Return]  convert to string  ${Response.content}
     delete all sessions
 
@@ -43,8 +46,9 @@ PATCH Method
     create session  session  ${baseAPIUrl}
     ${Body}=  create dictionary  ${RequestBody}
     ${Headers}=  create dictionary  ${RequestHeaders}
-    ${Response}=  patch request  session  ${Url}  data=${Body}  headers=${Headers}
-    should be equal  ${Response.status_code}  ${ResponseCode}
+    ${Response}=  patch on session  session  ${Url}  data=${Body}  headers=${Headers}
+    ${strResponseCode}=  convert to string  ${Response.status_code}
+    should be equal  ${strResponseCode}  ${ResponseCode}
     [Return]  convert to string  ${Response.content}
     delete all sessions
 
@@ -53,7 +57,8 @@ DELETE Method
     create session  session  ${baseAPIUrl}
     ${Body}=  create dictionary  ${RequestBody}
     ${Headers}=  create dictionary  ${RequestHeaders}
-    ${Response}=  delete request  session  ${Url}  data=${Body}  headers=${Headers}
-    should be equal  ${Response.status_code}  ${ResponseCode}
+    ${Response}=  delete on session  session  ${Url}  data=${Body}  headers=${Headers}
+    ${strResponseCode}=  convert to string  ${Response.status_code}
+    should be equal  ${strResponseCode}  ${ResponseCode}
     [Return]  convert to string  ${Response.content}
     delete all sessions
