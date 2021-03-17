@@ -123,7 +123,7 @@ Send Test Email
     Send Email  harsha_chanti37@yahoo.co.in  testsubject  testbody
 
 Read Gmail Content
-    EmailFunctions.Connect to Mailbox  imap.googlemail.com  harshapenumetcha37@gmail.com  Spandana37&
+    EmailFunctions.Connect to Mailbox  imap.googlemail.com  harshapenumetcha37@gmail.com  Password
     EmailFunctions.Email Verification  harsha_chanti37@yahoo.co.in
 
 API Get Request
